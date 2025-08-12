@@ -1,6 +1,6 @@
-## 🚀 Pull Request
+# 🚀 Pull Request
 
-### 📝 Description
+## 📝 Description
 
 <!-- Provide a brief description of the changes in this PR -->
 
@@ -52,7 +52,7 @@ Related to #(issue number)
 
 <!-- Add screenshots to help explain your changes -->
 
-### 📋 Additional Notes
+### � Additional Notes
 
 <!-- Add any other context about the pull request here -->
 
