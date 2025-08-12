@@ -72,18 +72,19 @@ jobs:
         run: npm ci
 
       - name: 🔍 Check for dependency updates
+        id: check-updates
         run: |
           npm run update-deps:check > dependency-updates.txt
           if [ -s dependency-updates.txt ]; then
             echo "Updates available"
-            echo "HAS_UPDATES=true" >> $GITHUB_ENV
+            echo "has-updates=true" >> $GITHUB_OUTPUT
           else
             echo "No updates available"
-            echo "HAS_UPDATES=false" >> $GITHUB_ENV
+            echo "has-updates=false" >> $GITHUB_OUTPUT
           fi
 
       - name: 📦 Update dependencies (if needed)
-        if: env.HAS_UPDATES == 'true'
+        if: steps.check-updates.outputs.has-updates == 'true'
         run: npm run update-deps
 
       - name: 🔧 Auto-fix formatting and linting
@@ -129,8 +130,10 @@ jobs:
       - name: 🏗️ Build project
         run: npm run build
 
+      # Deploy to Vercel (requires VERCEL_TOKEN, VERCEL_ORG_ID, VERCEL_PROJECT_ID secrets)
       - name: 🚀 Deploy to Vercel
         uses: amondnet/vercel-action@v25
+        continue-on-error: true
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
