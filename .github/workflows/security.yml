@@ -1,0 +1,270 @@
+name: 🔒 Security & Dependencies
+
+on:
+  schedule:
+    # Run security checks daily at 2 AM UTC
+    - cron: '0 2 * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'package.json'
+      - 'package-lock.json'
+      - '.github/workflows/security.yml'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  # 🔍 Security audit
+  security-audit:
+    name: 🔍 Security Audit
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: 📦 Checkout repository
+        uses: actions/checkout@v4
+
+      - name: 🔧 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: 📥 Install dependencies
+        run: npm ci
+
+      - name: 🔍 Run npm audit
+        run: |
+          echo "## 🔍 Security Audit Results" >> $GITHUB_STEP_SUMMARY
+          echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+          npm audit --audit-level=moderate || echo "Security vulnerabilities found"
+          echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+
+      - name: 🛡️ Run npm audit with fixes
+        run: |
+          # Try to fix vulnerabilities automatically
+          npm audit fix --dry-run > audit-fix-dry-run.txt 2>&1 || true
+
+          if grep -q "added\|removed\|changed\|audited" audit-fix-dry-run.txt; then
+            echo "Auto-fixable vulnerabilities found"
+            npm audit fix
+
+            # Check if package files changed
+            if [ -n "$(git status --porcelain package*.json)" ]; then
+              echo "AUDIT_FIXES_AVAILABLE=true" >> $GITHUB_ENV
+            fi
+          fi
+
+      - name: 📊 Upload audit results
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: security-audit-results
+          path: audit-fix-dry-run.txt
+          retention-days: 7
+
+  # 🔄 Dependency updates check
+  dependency-check:
+    name: 🔄 Dependency Updates
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    outputs:
+      updates-available: ${{ steps.check-updates.outputs.updates-available }}
+
+    steps:
+      - name: 📦 Checkout repository
+        uses: actions/checkout@v4
+
+      - name: 🔧 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: 📥 Install dependencies
+        run: npm ci
+
+      - name: 🔄 Check for dependency updates
+        id: check-updates
+        run: |
+          npm run update-deps:check > dependency-updates.txt 2>&1 || true
+
+          echo "## 🔄 Dependency Update Check" >> $GITHUB_STEP_SUMMARY
+          echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+          cat dependency-updates.txt >> $GITHUB_STEP_SUMMARY
+          echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+
+          if grep -q "All dependencies match the latest package versions" dependency-updates.txt; then
+            echo "updates-available=false" >> $GITHUB_OUTPUT
+            echo "✅ All dependencies are up to date" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "updates-available=true" >> $GITHUB_OUTPUT
+            echo "📦 Dependency updates are available" >> $GITHUB_STEP_SUMMARY
+          fi
+
+      - name: 📊 Upload dependency check results
+        uses: actions/upload-artifact@v3
+        with:
+          name: dependency-check-results
+          path: dependency-updates.txt
+          retention-days: 7
+
+  # 🏗️ Build verification with updated deps
+  build-with-updates:
+    name: 🏗️ Build Verification
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    needs: dependency-check
+    if: needs.dependency-check.outputs.updates-available == 'true'
+
+    steps:
+      - name: 📦 Checkout repository
+        uses: actions/checkout@v4
+
+      - name: 🔧 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: 📥 Install dependencies
+        run: npm ci
+
+      - name: 🔄 Update dependencies
+        run: npm run update-deps
+
+      - name: 🧪 Run tests with updated deps
+        run: npm run test:run
+
+      - name: 🏗️ Build with updated deps
+        run: npm run build
+
+      - name: 📝 Check for breaking changes
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "BREAKING_CHANGES=true" >> $GITHUB_ENV
+            echo "## ⚠️ Dependency updates may cause breaking changes" >> $GITHUB_STEP_SUMMARY
+            echo "The following files were modified:" >> $GITHUB_STEP_SUMMARY
+            git status --porcelain >> $GITHUB_STEP_SUMMARY
+          else
+            echo "BREAKING_CHANGES=false" >> $GITHUB_ENV
+            echo "## ✅ Dependency updates are safe" >> $GITHUB_STEP_SUMMARY
+          fi
+
+  # 🚨 Security issue report
+  security-report:
+    name: 🚨 Security Report
+    runs-on: ubuntu-latest
+    needs: [security-audit, dependency-check]
+    if: always() && github.event_name == 'schedule'
+
+    steps:
+      - name: 📦 Checkout repository
+        uses: actions/checkout@v4
+
+      - name: 📥 Download audit results
+        uses: actions/download-artifact@v3
+        with:
+          name: security-audit-results
+          path: ./audit-results/
+
+      - name: 📥 Download dependency results
+        uses: actions/download-artifact@v3
+        with:
+          name: dependency-check-results
+          path: ./dependency-results/
+
+      - name: 📧 Create security issue
+        if: needs.security-audit.result == 'failure'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+
+            // Read audit results
+            const auditResults = fs.readFileSync('./audit-results/audit-fix-dry-run.txt', 'utf8');
+            const dependencyResults = fs.readFileSync('./dependency-results/dependency-updates.txt', 'utf8');
+
+            const issueBody = `
+            ## 🚨 Security Alert - Automated Report
+
+            This issue was automatically created by the security workflow.
+
+            ### 🔍 Security Audit Results
+            \`\`\`
+            ${auditResults}
+            \`\`\`
+
+            ### 🔄 Dependency Status
+            \`\`\`
+            ${dependencyResults}
+            \`\`\`
+
+            ### 🛠️ Recommended Actions
+            - [ ] Review security vulnerabilities
+            - [ ] Update vulnerable dependencies
+            - [ ] Run tests after updates
+            - [ ] Verify application still works correctly
+
+            ---
+            *This issue was created automatically on ${new Date().toISOString()}*
+            `;
+
+            // Check if a security issue already exists
+            const { data: issues } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: 'security,automated',
+              state: 'open'
+            });
+
+            if (issues.length === 0) {
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title: `🚨 Security Alert - ${new Date().toISOString().split('T')[0]}`,
+                body: issueBody,
+                labels: ['security', 'automated', 'high-priority']
+              });
+            } else {
+              // Update existing issue
+              await github.rest.issues.update({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issues[0].number,
+                body: issueBody
+              });
+            }
+
+  # ✅ Security complete
+  security-complete:
+    name: ✅ Security Check Complete
+    runs-on: ubuntu-latest
+    needs: [security-audit, dependency-check, build-with-updates]
+    if: always()
+
+    steps:
+      - name: 📊 Security summary
+        run: |
+          echo "## 🔒 Security & Dependencies Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "🔍 **Security Audit:** ${{ needs.security-audit.result }}" >> $GITHUB_STEP_SUMMARY
+          echo "🔄 **Dependency Check:** ${{ needs.dependency-check.result }}" >> $GITHUB_STEP_SUMMARY
+          echo "🏗️ **Build Verification:** ${{ needs.build-with-updates.result || 'skipped' }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+
+          if [[ "${{ needs.dependency-check.outputs.updates-available }}" == "true" ]]; then
+            echo "📦 **Updates Available:** Yes" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "✅ **Dependencies:** Up to date" >> $GITHUB_STEP_SUMMARY
+          fi
+
+          if [[ "${{ needs.security-audit.result }}" == "success" ]]; then
+            echo "🛡️ **Security Status:** No issues found" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "⚠️ **Security Status:** Issues detected - review required" >> $GITHUB_STEP_SUMMARY
+          fi

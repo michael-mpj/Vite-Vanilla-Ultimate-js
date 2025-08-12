@@ -33,7 +33,8 @@
     "prerelease": "npm run check && npm run build",
     "postrelease": "git push --follow-tags origin main",
     "ci": "npm run check && npm run build",
-    "auto-fix": "npm run update-deps && npm run fix && npm run test:run"
+    "auto-fix": "npm run update-deps && npm run fix && npm run test:run",
+    "validate-workflows": "./scripts/validate-workflows.sh"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.8.1",

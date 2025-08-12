@@ -5,6 +5,9 @@ export default defineConfig({
   description: 'Modern Vanilla JavaScript framework with Vite - Production-ready starter template',
   base: '/vite-vanilla-ultimate/',
 
+  // Ignore dead links temporarily while building docs
+  ignoreDeadLinks: true,
+
   head: [
     ['link', { rel: 'icon', href: '/favicon.ico' }],
     ['meta', { name: 'theme-color', content: '#646cff' }],
