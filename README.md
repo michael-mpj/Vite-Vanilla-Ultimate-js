@@ -99,7 +99,21 @@ npm run prepare      # Setup Husky git hooks (runs on install)
 
 > **Note**: Development server auto-detects available ports (3000, 3001, etc.)
 
-## 🔧 Configuration
+## � Documentation
+
+Comprehensive project documentation is available in the [`docs/`](docs/) directory:
+
+- **[📋 API Documentation](docs/API.md)** - Complete API reference and module documentation
+- **[🏗️ Architecture Guide](docs/ARCHITECTURE.md)** - Project structure and design principles
+- **[📝 Changelog](docs/CHANGELOG.md)** - Version history and release notes
+- **[🤝 Code of Conduct](docs/CODE_OF_CONDUCT.md)** - Community guidelines and standards
+- **[👥 Contributing Guide](docs/CONTRIBUTING.md)** - How to contribute to the project
+- **[🚀 Deployment Guide](docs/DEPLOYMENT.md)** - Production deployment instructions
+- **[⚙️ Environment Setup](docs/ENVIRONMENT.md)** - Development environment configuration
+- **[⚡ Performance Guide](docs/Performance.md)** - Optimization tips and best practices
+- **[🔒 Security Policy](docs/SECURITY.md)** - Security guidelines and vulnerability reporting
+
+## �🔧 Configuration
 
 ### ESLint (v9.9.0)
 
