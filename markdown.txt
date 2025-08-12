@@ -1,0 +1,132 @@
+Vite Vanilla Ultimate Starter — Overview
+
+📦 Core Stack
+------------------------
+Tool            Purpose
+----            -------
+Vite            Lightning-fast dev server and bundler
+Vanilla JS      No frameworks, clean ES modules
+NPM/Yarn/PNPM   Dependency management
+ES Modules      Native import/export for modularity
+
+------------------------
+
+🛠 Development Tools
+------------------------
+Tool             Purpose
+----             -------
+Prettier         Code formatting
+ESLint           Code linting with Airbnb + Prettier config
+Husky            Git hooks for pre-commit checks
+lint-staged      Only lint/format changed files
+EditorConfig     Consistent editor settings
+VS Code Workspace Extensions, snippets, themes pre-configured
+
+------------------------
+
+🚀 Vite Plugins
+------------------------
+Plugin                   Purpose
+------                   -------
+vite-plugin-html         Inject meta tags & variables into HTML
+vite-plugin-compression  Gzip/Brotli compression for production
+vite-plugin-pwa          Progressive Web App support
+vite-plugin-eslint       ESLint integration in dev mode
+vite-plugin-svgr         Import SVG as components (optional)
+vite-plugin-inspect      Debug Vite plugins
+vite-plugin-environment  Load environment variables
+
+------------------------
+
+🧪 Testing
+------------------------
+Tool                   Purpose
+----                   -------
+Vitest                 Unit testing (Vite-native)
+@testing-library/dom   DOM testing utilities
+
+------------------------
+
+📂 Project Structure
+------------------------
+vite-vanilla-ultimate/
+│  .editorconfig
+│  .eslintrc.cjs
+│  .prettierrc
+│  .gitignore
+│  index.html
+│  package.json
+│  vite.config.js
+│  vercel.json
+│
+├── public/
+│   ├── favicon.ico
+│   ├── manifest.json
+│   └── robots.txt
+│
+├── src/
+│   ├── assets/
+│   │   ├── images/
+│   │   └── styles/
+│   │       ├── main.css
+│   │       └── variables.css
+│   │
+│   ├── components/
+│   │   ├── Header.js
+│   │   ├── Footer.js
+│   │   └── Navbar.js
+│   │
+│   ├── modules/
+│   │   ├── api.js
+│   │   ├── storage.js
+│   │   └── analytics.js
+│   │
+│   ├── pages/
+│   │   ├── index.js
+│   │   ├── about.js
+│   │   └── contact.js
+│   │
+│   ├── utils/
+│   │   ├── dom.js
+│   │   ├── format.js
+│   │   └── logger.js
+│   │
+│   ├── main.js
+│   └── registerServiceWorker.js
+│
+├── tests/
+│   ├── example.test.js
+│   └── utils.test.js
+│
+└── .vscode/
+    ├── extensions.json
+    ├── launch.json
+    ├── settings.json
+    └── snippets.code-snippets
+
+------------------------
+
+📑 VS Code Profile
+------------------------
+Extensions:
+- ESLint
+- Prettier
+- EditorConfig
+- Live Server
+- GitLens
+- Path Intellisense
+- Auto Import
+- Error Lens
+
+Theme:
+- defa
+
+Snippets:
+- HTML boilerplate
+- Vanilla JS module
+- Component template
+
+Tasks:
+- Build
+- Test
+- Format

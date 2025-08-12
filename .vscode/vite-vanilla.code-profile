@@ -1,0 +1,81 @@
+{
+  "name": "Vite Vanilla Dev",
+  "settings": {
+    "editor.fontSize": 14,
+    "editor.tabSize": 2,
+    "editor.formatOnSave": true,
+    "editor.wordWrap": "on",
+    "editor.minimap.enabled": false,
+    "editor.inlineSuggest.enabled": true,
+    "files.autoSave": "onFocusChange",
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "prettier.singleQuote": true,
+    "prettier.semi": false,
+    "workbench.colorTheme": "GitHub Dark Default",
+    "workbench.iconTheme": "material-icon-theme",
+    "terminal.integrated.defaultProfile.linux": "bash",
+    "terminal.integrated.defaultProfile.osx": "zsh",
+    "terminal.integrated.defaultProfile.windows": "PowerShell"
+  },
+  "extensions": {
+    "recommendations": [
+      "dbaeumer.vscode-eslint",
+      "esbenp.prettier-vscode",
+      "antfu.vite",
+      "ecmel.vscode-html-css",
+      "christian-kohler.path-intellisense",
+      "xabikos.JavaScriptSnippets",
+      "PKief.material-icon-theme",
+      "github.github-vscode-theme",
+      "ritwickdey.LiveServer"
+    ]
+  },
+  "snippets": {
+    "vite-vanilla": {
+      "Vite HTML Boilerplate": {
+        "prefix": "vitehtml",
+        "body": [
+          "<!DOCTYPE html>",
+          "<html lang='en'>",
+          "<head>",
+          "  <meta charset='UTF-8'>",
+          "  <meta name='viewport' content='width=device-width, initial-scale=1.0'>",
+          "  <title>$1</title>",
+          "</head>",
+          "<body>",
+          "  <div id='app'></div>",
+          "  <script type='module' src='/main.js'></script>",
+          "</body>",
+          "</html>"
+        ],
+        "description": "Vite Vanilla HTML template"
+      },
+      "Vite Main JS": {
+        "prefix": "vitems",
+        "body": [
+          "import './style.css'",
+          "document.querySelector('#app').innerHTML = `<h1>Hello Vite!</h1>`"
+        ],
+        "description": "Vite main.js boilerplate"
+      }
+    }
+  },
+  "tasks": {
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "Vite Dev",
+        "type": "shell",
+        "command": "npm run dev",
+        "problemMatcher": [],
+        "group": "build"
+      },
+      {
+        "label": "Vite Build",
+        "type": "shell",
+        "command": "npm run build",
+        "problemMatcher": []
+      }
+    ]
+  }
+}
