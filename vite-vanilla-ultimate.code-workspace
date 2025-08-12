@@ -1,0 +1,72 @@
+{
+  "folders": [
+    {
+      "name": "🚀 Vite Vanilla Ultimate",
+      "path": ".",
+    },
+  ],
+  "settings": {
+    // Workspace-specific settings
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit",
+      "source.organizeImports": "explicit",
+    },
+    "files.associations": {
+      "*.md": "markdown",
+      "*.json": "jsonc",
+      ".prettierrc": "json",
+      ".eslintrc*": "jsonc",
+    },
+    "search.useReplacePreview": true,
+    "search.smartCase": true,
+    "editor.suggest.insertMode": "replace",
+    "typescript.preferences.importModuleSpecifier": "relative",
+  },
+  "extensions": {
+    "recommendations": [
+      "dbaeumer.vscode-eslint",
+      "esbenp.prettier-vscode",
+      "antfu.vite",
+      "PKief.material-icon-theme",
+      "eamodio.gitlens",
+      "github.copilot",
+      "vitest.explorer",
+    ],
+  },
+  "tasks": {
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "🚀 Quick Start",
+        "type": "shell",
+        "command": "npm run dev",
+        "group": {
+          "kind": "build",
+          "isDefault": true,
+        },
+        "isBackground": true,
+        "presentation": {
+          "echo": true,
+          "reveal": "always",
+          "focus": false,
+          "panel": "new",
+          "clear": true,
+        },
+      },
+    ],
+  },
+  "launch": {
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "🔥 Launch & Debug",
+        "type": "chrome",
+        "request": "launch",
+        "url": "http://localhost:5173",
+        "webRoot": "${workspaceFolder}/src",
+        "preLaunchTask": "🚀 Quick Start",
+      },
+    ],
+  },
+}

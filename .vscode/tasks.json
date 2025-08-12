@@ -5,7 +5,10 @@
       "label": "dev",
       "type": "shell",
       "command": "npm run dev",
-      "group": "build",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
       "isBackground": true,
       "problemMatcher": {
         "owner": "vite",
@@ -29,7 +32,8 @@
         "reveal": "always",
         "focus": false,
         "panel": "new",
-        "showReuseMessage": false
+        "showReuseMessage": false,
+        "clear": true
       },
       "options": {
         "cwd": "${workspaceFolder}"
@@ -63,7 +67,8 @@
         "reveal": "always",
         "focus": false,
         "panel": "new",
-        "showReuseMessage": false
+        "showReuseMessage": false,
+        "clear": true
       },
       "options": {
         "cwd": "${workspaceFolder}",
@@ -74,9 +79,131 @@
       }
     },
     {
-      "label": "npm: build",
+      "label": "build",
       "type": "shell",
       "command": "npm run build",
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared",
+        "clear": true
+      },
+      "problemMatcher": ["$tsc"]
+    },
+    {
+      "label": "preview",
+      "type": "shell",
+      "command": "npm run preview",
+      "group": "build",
+      "dependsOn": "build",
+      "isBackground": true,
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "new",
+        "clear": true
+      }
+    },
+    {
+      "label": "test",
+      "type": "shell",
+      "command": "npm test",
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "isBackground": true,
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": true,
+        "panel": "new",
+        "clear": true
+      },
+      "problemMatcher": {
+        "owner": "vitest",
+        "fileLocation": "relative",
+        "pattern": {
+          "regexp": "^(.*):(\\d+):(\\d+):\\s+(.*)",
+          "file": 1,
+          "line": 2,
+          "column": 3,
+          "message": 4
+        }
+      }
+    },
+    {
+      "label": "test:run",
+      "type": "shell",
+      "command": "npm run test:run",
+      "group": "test",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": true,
+        "panel": "shared",
+        "clear": true
+      }
+    },
+    {
+      "label": "test:coverage",
+      "type": "shell",
+      "command": "npm run test:coverage",
+      "group": "test",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": true,
+        "panel": "new",
+        "clear": true
+      }
+    },
+    {
+      "label": "lint",
+      "type": "shell",
+      "command": "npm run lint",
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared",
+        "clear": true
+      },
+      "problemMatcher": ["$eslint-stylish"]
+    },
+    {
+      "label": "lint:check",
+      "type": "shell",
+      "command": "npm run lint:check",
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared"
+      },
+      "problemMatcher": ["$eslint-stylish"]
+    },
+    {
+      "label": "format",
+      "type": "shell",
+      "command": "npm run format",
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "silent",
+        "focus": false,
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "format:check",
+      "type": "shell",
+      "command": "npm run format:check",
       "group": "build",
       "presentation": {
         "echo": true,
@@ -86,15 +213,82 @@
       }
     },
     {
-      "label": "test-debug",
+      "label": "fix",
       "type": "shell",
-      "command": "npm test -- --reporter=verbose",
+      "command": "npm run fix",
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared",
+        "clear": true
+      }
+    },
+    {
+      "label": "check",
+      "type": "shell",
+      "command": "npm run check",
       "group": "test",
       "presentation": {
         "echo": true,
         "reveal": "always",
         "focus": true,
-        "panel": "new"
+        "panel": "new",
+        "clear": true
+      }
+    },
+    {
+      "label": "docs:dev",
+      "type": "shell",
+      "command": "npm run docs:dev",
+      "group": "build",
+      "isBackground": true,
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "new",
+        "clear": true
+      }
+    },
+    {
+      "label": "docs:build",
+      "type": "shell",
+      "command": "npm run docs:build",
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared",
+        "clear": true
+      }
+    },
+    {
+      "label": "auto-fix",
+      "type": "shell",
+      "command": "npm run auto-fix",
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": true,
+        "panel": "new",
+        "clear": true
+      }
+    },
+    {
+      "label": "setup",
+      "type": "shell",
+      "command": "./setup.sh",
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": true,
+        "panel": "new",
+        "clear": true
       }
     }
   ]

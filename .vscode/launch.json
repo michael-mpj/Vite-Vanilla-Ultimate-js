@@ -5,7 +5,7 @@
       "type": "chrome",
       "request": "launch",
       "name": "🚀 Launch Chrome with Debugger",
-      "url": "http://localhost:3000",
+      "url": "http://localhost:5173",
       "webRoot": "${workspaceFolder}/src",
       "sourceMaps": true,
       "userDataDir": "${workspaceFolder}/.vscode/chrome-debug-profile",
@@ -13,7 +13,21 @@
         "--auto-open-devtools-for-tabs",
         "--disable-web-security",
         "--disable-features=VizDisplayCompositor"
-      ]
+      ],
+      "env": {
+        "NODE_ENV": "development"
+      }
+    },
+    {
+      "type": "chrome",
+      "request": "launch",
+      "name": "🔍 Debug Production Build",
+      "url": "http://localhost:4173",
+      "webRoot": "${workspaceFolder}/dist",
+      "sourceMaps": true,
+      "userDataDir": "${workspaceFolder}/.vscode/chrome-debug-profile-prod",
+      "runtimeArgs": ["--auto-open-devtools-for-tabs"],
+      "preLaunchTask": "preview"
     },
     {
       "type": "chrome",
@@ -31,7 +45,36 @@
       "args": ["--run"],
       "console": "integratedTerminal",
       "cwd": "${workspaceFolder}",
-      "sourceMaps": true
+      "sourceMaps": true,
+      "env": {
+        "NODE_ENV": "test"
+      }
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "🧪 Debug Tests (Watch Mode)",
+      "program": "${workspaceFolder}/node_modules/vitest/vitest.mjs",
+      "args": ["--watch"],
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}",
+      "sourceMaps": true,
+      "env": {
+        "NODE_ENV": "test"
+      }
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "🧪 Debug Tests with Coverage",
+      "program": "${workspaceFolder}/node_modules/vitest/vitest.mjs",
+      "args": ["--run", "--coverage"],
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}",
+      "sourceMaps": true,
+      "env": {
+        "NODE_ENV": "test"
+      }
     },
     {
       "type": "node",
@@ -41,7 +84,45 @@
       "args": ["build"],
       "console": "integratedTerminal",
       "cwd": "${workspaceFolder}",
-      "sourceMaps": true
+      "sourceMaps": true,
+      "env": {
+        "NODE_ENV": "production"
+      }
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "🔧 Debug ESLint",
+      "program": "${workspaceFolder}/node_modules/eslint/bin/eslint.js",
+      "args": ["src", "--ext", ".js", "--debug"],
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "📚 Debug VitePress",
+      "program": "${workspaceFolder}/node_modules/vitepress/bin/vitepress.js",
+      "args": ["dev", "docs-site"],
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}",
+      "env": {
+        "NODE_ENV": "development"
+      }
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "🚀 Debug Development Server",
+      "program": "${workspaceFolder}/node_modules/vite/bin/vite.js",
+      "args": ["--host", "0.0.0.0", "--port", "5173"],
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}",
+      "sourceMaps": true,
+      "env": {
+        "NODE_ENV": "development",
+        "DEBUG": "*"
+      }
     }
   ],
   "compounds": [
@@ -49,6 +130,16 @@
       "name": "🔥 Launch Dev + Debugger",
       "configurations": ["🚀 Launch Chrome with Debugger"],
       "preLaunchTask": "dev",
+      "stopAll": true
+    },
+    {
+      "name": "🧪 Test + Debug",
+      "configurations": ["🧪 Debug Tests (Watch Mode)"],
+      "stopAll": true
+    },
+    {
+      "name": "📚 Docs + Debug",
+      "configurations": ["📚 Debug VitePress"],
       "stopAll": true
     }
   ]
