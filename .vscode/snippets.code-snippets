@@ -13,8 +13,8 @@
       "  <div id=\"app\"></div>",
       "  <script type=\"module\" src=\"./main.js\"></script>",
       "</body>",
-      "</html>"
+      "</html>",
     ],
-    "description": "Vite index.html starter"
-  }
+    "description": "Vite index.html starter",
+  },
 }
