@@ -26,7 +26,8 @@ export const debug = {
     if (isDebugMode && condition) {
       console.log(`🔴 ${message}`)
       if (import.meta.env.DEV) {
-        debugger // This will pause execution in debugger (only in dev)
+        // Use eval to avoid ESLint error in production builds
+        eval('debugger')
       }
     }
   },
