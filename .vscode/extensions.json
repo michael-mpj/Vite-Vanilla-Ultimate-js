@@ -5,6 +5,16 @@
     "esbenp.prettier-vscode",
     "editorconfig.editorconfig",
 
+    // 🔍 Validation & Linting
+    "ms-vscode.vscode-json",
+    "redhat.vscode-yaml",
+    "davidanson.vscode-markdownlint",
+    "stylelint.vscode-stylelint",
+    "htmlhint.vscode-htmlhint",
+    "celianriboulet.webvalidator",
+    "usernamehw.errorlens",
+    "streetsidesoftware.code-spell-checker",
+
     // 🏗️ Build Tools & Frameworks
     "antfu.vite",
     "bradlc.vscode-tailwindcss",
@@ -16,11 +26,12 @@
     "christian-kohler.path-intellisense",
     "zignd.html-css-class-completion",
     "ecmel.vscode-html-css",
+    "vincaslt.highlight-matching-tag",
+    "pranaygp.vscode-css-peek",
 
     // 📦 Package Management
     "eg2.vscode-npm-script",
     "christian-kohler.npm-intellisense",
-    "ms-vscode.vscode-json",
 
     // 🔍 Git & Version Control
     "eamodio.gitlens",
@@ -37,7 +48,6 @@
 
     // 📚 Documentation
     "yzhang.markdown-all-in-one",
-    "davidanson.vscode-markdownlint",
     "shd101wyy.markdown-preview-enhanced",
 
     // 🧪 Testing & Debugging
@@ -47,18 +57,12 @@
 
     // 🚀 Productivity
     "aaron-bond.better-comments",
-    "usernamehw.errorlens",
-    "streetsidesoftware.code-spell-checker",
     "gruntfuggly.todo-tree",
     "alefragnani.bookmarks",
+    "wakatime.vscode-wakatime",
 
     // 🔧 Development Tools
-    "ms-vscode.vscode-json",
-    "redhat.vscode-yaml",
     "ms-vscode.hexdump",
-    "ms-vscode.vscode-serial-monitor",
-
-    // 🌍 API & REST
     "humao.rest-client",
     "42crunch.vscode-openapi",
 
@@ -66,10 +70,9 @@
     "janisdd.vscode-edit-csv",
     "mechatroner.rainbow-csv",
 
-    // 🎯 Language Support
-    "ms-vscode.vscode-typescript-next",
-    "bradlc.vscode-tailwindcss",
-    "ms-vscode.vscode-json"
+    // � Accessibility & SEO
+    "deque-systems.vscode-axe-linter",
+    "webhint.vscode-webhint"
   ],
   "unwantedRecommendations": [
     "ms-vscode.vscode-typescript-tslint-plugin",

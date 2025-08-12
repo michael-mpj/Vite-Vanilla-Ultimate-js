@@ -6,5 +6,11 @@ export default defineConfig({
     exclude: ['**/node_modules/**', '**/dist/**'],
     environment: 'jsdom',
     globals: true,
+    setupFiles: [],
+    coverage: {
+      provider: 'v8',
+      reporter: ['text', 'json', 'html'],
+      exclude: ['node_modules/', 'tests/', 'coverage/', '**/*.config.js', '**/*.config.cjs'],
+    },
   },
 })

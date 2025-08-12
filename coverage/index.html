@@ -1,231 +1,716 @@
+
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <title>Code coverage report for All files</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="prettify.css" />
     <link rel="stylesheet" href="base.css" />
     <link rel="shortcut icon" type="image/x-icon" href="favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <style type="text/css">
-      .coverage-summary .sorter {
-        background-image: url(sort-arrow-sprite.png);
-      }
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(sort-arrow-sprite.png);
+        }
     </style>
-  </head>
-
-  <body>
-    <div class="wrapper">
-      <div class="pad1">
+</head>
+    
+<body>
+<div class='wrapper'>
+    <div class='pad1'>
         <h1>All files</h1>
-        <div class="clearfix">
-          <div class="fl pad1y space-right2">
-            <span class="strong">0% </span>
-            <span class="quiet">Statements</span>
-            <span class="fraction">0/107</span>
-          </div>
-
-          <div class="fl pad1y space-right2">
-            <span class="strong">0% </span>
-            <span class="quiet">Branches</span>
-            <span class="fraction">0/13</span>
-          </div>
-
-          <div class="fl pad1y space-right2">
-            <span class="strong">0% </span>
-            <span class="quiet">Functions</span>
-            <span class="fraction">0/13</span>
-          </div>
-
-          <div class="fl pad1y space-right2">
-            <span class="strong">0% </span>
-            <span class="quiet">Lines</span>
-            <span class="fraction">0/107</span>
-          </div>
+        <div class='clearfix'>
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">86.6% </span>
+                <span class="quiet">Statements</span>
+                <span class='fraction'>30127/34787</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">33.33% </span>
+                <span class="quiet">Branches</span>
+                <span class='fraction'>9/27</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">33.33% </span>
+                <span class="quiet">Functions</span>
+                <span class='fraction'>9/27</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">86.6% </span>
+                <span class="quiet">Lines</span>
+                <span class='fraction'>30127/34787</span>
+            </div>
+        
+            
         </div>
         <p class="quiet">
-          Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>,
-          <em>p</em> or <em>k</em> for the previous block.
+            Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
         <template id="filterTemplate">
-          <div class="quiet">
-            Filter:
-            <input type="search" id="fileSearch" />
-          </div>
+            <div class="quiet">
+                Filter:
+                <input type="search" id="fileSearch">
+            </div>
         </template>
-      </div>
-      <div class="status-line low"></div>
-      <div class="pad1">
-        <table class="coverage-summary">
-          <thead>
-            <tr>
-              <th data-col="file" data-fmt="html" data-html="true" class="file">File</th>
-              <th
-                data-col="pic"
-                data-type="number"
-                data-fmt="html"
-                data-html="true"
-                class="pic"
-              ></th>
-              <th data-col="statements" data-type="number" data-fmt="pct" class="pct">
-                Statements
-              </th>
-              <th data-col="statements_raw" data-type="number" data-fmt="html" class="abs"></th>
-              <th data-col="branches" data-type="number" data-fmt="pct" class="pct">Branches</th>
-              <th data-col="branches_raw" data-type="number" data-fmt="html" class="abs"></th>
-              <th data-col="functions" data-type="number" data-fmt="pct" class="pct">Functions</th>
-              <th data-col="functions_raw" data-type="number" data-fmt="html" class="abs"></th>
-              <th data-col="lines" data-type="number" data-fmt="pct" class="pct">Lines</th>
-              <th data-col="lines_raw" data-type="number" data-fmt="html" class="abs"></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="file low" data-value="Vite-Vanilla-Ultimate-js">
-                <a href="Vite-Vanilla-Ultimate-js/index.html">Vite-Vanilla-Ultimate-js</a>
-              </td>
-              <td data-value="0" class="pic low">
-                <div class="chart">
-                  <div class="cover-fill" style="width: 0%"></div>
-                  <div class="cover-empty" style="width: 100%"></div>
-                </div>
-              </td>
-              <td data-value="0" class="pct low">0%</td>
-              <td data-value="1" class="abs low">0/1</td>
-              <td data-value="0" class="pct low">0%</td>
-              <td data-value="1" class="abs low">0/1</td>
-              <td data-value="0" class="pct low">0%</td>
-              <td data-value="1" class="abs low">0/1</td>
-              <td data-value="0" class="pct low">0%</td>
-              <td data-value="1" class="abs low">0/1</td>
-            </tr>
-
-            <tr>
-              <td class="file low" data-value="Vite-Vanilla-Ultimate-js/src">
-                <a href="Vite-Vanilla-Ultimate-js/src/index.html">Vite-Vanilla-Ultimate-js/src</a>
-              </td>
-              <td data-value="0" class="pic low">
-                <div class="chart">
-                  <div class="cover-fill" style="width: 0%"></div>
-                  <div class="cover-empty" style="width: 100%"></div>
-                </div>
-              </td>
-              <td data-value="0" class="pct low">0%</td>
-              <td data-value="19" class="abs low">0/19</td>
-              <td data-value="0" class="pct low">0%</td>
-              <td data-value="2" class="abs low">0/2</td>
-              <td data-value="0" class="pct low">0%</td>
-              <td data-value="2" class="abs low">0/2</td>
-              <td data-value="0" class="pct low">0%</td>
-              <td data-value="19" class="abs low">0/19</td>
-            </tr>
-
-            <tr>
-              <td class="file low" data-value="Vite-Vanilla-Ultimate-js/src/components">
-                <a href="Vite-Vanilla-Ultimate-js/src/components/index.html"
-                  >Vite-Vanilla-Ultimate-js/src/components</a
-                >
-              </td>
-              <td data-value="0" class="pic low">
-                <div class="chart">
-                  <div class="cover-fill" style="width: 0%"></div>
-                  <div class="cover-empty" style="width: 100%"></div>
-                </div>
-              </td>
-              <td data-value="0" class="pct low">0%</td>
-              <td data-value="21" class="abs low">0/21</td>
-              <td data-value="0" class="pct low">0%</td>
-              <td data-value="3" class="abs low">0/3</td>
-              <td data-value="0" class="pct low">0%</td>
-              <td data-value="3" class="abs low">0/3</td>
-              <td data-value="0" class="pct low">0%</td>
-              <td data-value="21" class="abs low">0/21</td>
-            </tr>
-
-            <tr>
-              <td class="file low" data-value="Vite-Vanilla-Ultimate-js/src/modules">
-                <a href="Vite-Vanilla-Ultimate-js/src/modules/index.html"
-                  >Vite-Vanilla-Ultimate-js/src/modules</a
-                >
-              </td>
-              <td data-value="0" class="pic low">
-                <div class="chart">
-                  <div class="cover-fill" style="width: 0%"></div>
-                  <div class="cover-empty" style="width: 100%"></div>
-                </div>
-              </td>
-              <td data-value="0" class="pct low">0%</td>
-              <td data-value="33" class="abs low">0/33</td>
-              <td data-value="0" class="pct low">0%</td>
-              <td data-value="2" class="abs low">0/2</td>
-              <td data-value="0" class="pct low">0%</td>
-              <td data-value="2" class="abs low">0/2</td>
-              <td data-value="0" class="pct low">0%</td>
-              <td data-value="33" class="abs low">0/33</td>
-            </tr>
-
-            <tr>
-              <td class="file low" data-value="Vite-Vanilla-Ultimate-js/src/pages">
-                <a href="Vite-Vanilla-Ultimate-js/src/pages/index.html"
-                  >Vite-Vanilla-Ultimate-js/src/pages</a
-                >
-              </td>
-              <td data-value="0" class="pic low">
-                <div class="chart">
-                  <div class="cover-fill" style="width: 0%"></div>
-                  <div class="cover-empty" style="width: 100%"></div>
-                </div>
-              </td>
-              <td data-value="0" class="pct low">0%</td>
-              <td data-value="29" class="abs low">0/29</td>
-              <td data-value="0" class="pct low">0%</td>
-              <td data-value="3" class="abs low">0/3</td>
-              <td data-value="0" class="pct low">0%</td>
-              <td data-value="3" class="abs low">0/3</td>
-              <td data-value="0" class="pct low">0%</td>
-              <td data-value="29" class="abs low">0/29</td>
-            </tr>
-
-            <tr>
-              <td class="file low" data-value="Vite-Vanilla-Ultimate-js/src/utils">
-                <a href="Vite-Vanilla-Ultimate-js/src/utils/index.html"
-                  >Vite-Vanilla-Ultimate-js/src/utils</a
-                >
-              </td>
-              <td data-value="0" class="pic low">
-                <div class="chart">
-                  <div class="cover-fill" style="width: 0%"></div>
-                  <div class="cover-empty" style="width: 100%"></div>
-                </div>
-              </td>
-              <td data-value="0" class="pct low">0%</td>
-              <td data-value="4" class="abs low">0/4</td>
-              <td data-value="0" class="pct low">0%</td>
-              <td data-value="2" class="abs low">0/2</td>
-              <td data-value="0" class="pct low">0%</td>
-              <td data-value="2" class="abs low">0/2</td>
-              <td data-value="0" class="pct low">0%</td>
-              <td data-value="4" class="abs low">0/4</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="push"></div>
-      <!-- for sticky footer -->
     </div>
-    <!-- /wrapper -->
-    <div class="footer quiet pad2 space-top1 center small">
-      Code coverage generated by
-      <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-      at 2025-08-12T10:11:58.609Z
-    </div>
-    <script src="prettify.js"></script>
-    <script>
-      window.onload = function () {
-        prettyPrint()
-      }
-    </script>
-    <script src="sorter.js"></script>
-    <script src="block-navigation.js"></script>
-  </body>
+    <div class='status-line high'></div>
+    <div class="pad1">
+<table class="coverage-summary">
+<thead>
+<tr>
+   <th data-col="file" data-fmt="html" data-html="true" class="file">File</th>
+   <th data-col="pic" data-type="number" data-fmt="html" data-html="true" class="pic"></th>
+   <th data-col="statements" data-type="number" data-fmt="pct" class="pct">Statements</th>
+   <th data-col="statements_raw" data-type="number" data-fmt="html" class="abs"></th>
+   <th data-col="branches" data-type="number" data-fmt="pct" class="pct">Branches</th>
+   <th data-col="branches_raw" data-type="number" data-fmt="html" class="abs"></th>
+   <th data-col="functions" data-type="number" data-fmt="pct" class="pct">Functions</th>
+   <th data-col="functions_raw" data-type="number" data-fmt="html" class="abs"></th>
+   <th data-col="lines" data-type="number" data-fmt="pct" class="pct">Lines</th>
+   <th data-col="lines_raw" data-type="number" data-fmt="html" class="abs"></th>
+</tr>
+</thead>
+<tbody><tr>
+	<td class="file low" data-value="mike/www/Vite-Vanilla-Ultimate-js"><a href="mike/www/Vite-Vanilla-Ultimate-js/index.html">mike/www/Vite-Vanilla-Ultimate-js</a></td>
+	<td data-value="0" class="pic low">
+	<div class="chart"><div class="cover-fill" style="width: 0%"></div><div class="cover-empty" style="width: 100%"></div></div>
+	</td>
+	<td data-value="0" class="pct low">0%</td>
+	<td data-value="223" class="abs low">0/223</td>
+	<td data-value="0" class="pct low">0%</td>
+	<td data-value="1" class="abs low">0/1</td>
+	<td data-value="0" class="pct low">0%</td>
+	<td data-value="1" class="abs low">0/1</td>
+	<td data-value="0" class="pct low">0%</td>
+	<td data-value="223" class="abs low">0/223</td>
+	</tr>
+
+<tr>
+	<td class="file low" data-value="mike/www/Vite-Vanilla-Ultimate-js/dist"><a href="mike/www/Vite-Vanilla-Ultimate-js/dist/index.html">mike/www/Vite-Vanilla-Ultimate-js/dist</a></td>
+	<td data-value="0" class="pic low">
+	<div class="chart"><div class="cover-fill" style="width: 0%"></div><div class="cover-empty" style="width: 100%"></div></div>
+	</td>
+	<td data-value="0" class="pct low">0%</td>
+	<td data-value="1" class="abs low">0/1</td>
+	<td data-value="0" class="pct low">0%</td>
+	<td data-value="1" class="abs low">0/1</td>
+	<td data-value="0" class="pct low">0%</td>
+	<td data-value="1" class="abs low">0/1</td>
+	<td data-value="0" class="pct low">0%</td>
+	<td data-value="1" class="abs low">0/1</td>
+	</tr>
+
+<tr>
+	<td class="file high" data-value="mike/www/Vite-Vanilla-Ultimate-js/dist/node_modules/workbox-core"><a href="mike/www/Vite-Vanilla-Ultimate-js/dist/node_modules/workbox-core/index.html">mike/www/Vite-Vanilla-Ultimate-js/dist/node_modules/workbox-core</a></td>
+	<td data-value="94.52" class="pic high">
+	<div class="chart"><div class="cover-fill" style="width: 94%"></div><div class="cover-empty" style="width: 6%"></div></div>
+	</td>
+	<td data-value="94.52" class="pct high">94.52%</td>
+	<td data-value="73" class="abs high">69/73</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="1" class="abs high">1/1</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="1" class="abs high">1/1</td>
+	<td data-value="94.52" class="pct high">94.52%</td>
+	<td data-value="73" class="abs high">69/73</td>
+	</tr>
+
+<tr>
+	<td class="file high" data-value="mike/www/Vite-Vanilla-Ultimate-js/dist/node_modules/workbox-core/_private"><a href="mike/www/Vite-Vanilla-Ultimate-js/dist/node_modules/workbox-core/_private/index.html">mike/www/Vite-Vanilla-Ultimate-js/dist/node_modules/workbox-core/_private</a></td>
+	<td data-value="100" class="pic high">
+	<div class="chart"><div class="cover-fill cover-full" style="width: 100%"></div><div class="cover-empty" style="width: 0%"></div></div>
+	</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="311" class="abs high">311/311</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="0" class="abs high">0/0</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="0" class="abs high">0/0</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="311" class="abs high">311/311</td>
+	</tr>
+
+<tr>
+	<td class="file high" data-value="mike/www/Vite-Vanilla-Ultimate-js/dist/node_modules/workbox-core/models"><a href="mike/www/Vite-Vanilla-Ultimate-js/dist/node_modules/workbox-core/models/index.html">mike/www/Vite-Vanilla-Ultimate-js/dist/node_modules/workbox-core/models</a></td>
+	<td data-value="100" class="pic high">
+	<div class="chart"><div class="cover-fill cover-full" style="width: 100%"></div><div class="cover-empty" style="width: 0%"></div></div>
+	</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="10" class="abs high">10/10</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="0" class="abs high">0/0</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="0" class="abs high">0/0</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="10" class="abs high">10/10</td>
+	</tr>
+
+<tr>
+	<td class="file high" data-value="mike/www/Vite-Vanilla-Ultimate-js/dist/node_modules/workbox-core/models/messages"><a href="mike/www/Vite-Vanilla-Ultimate-js/dist/node_modules/workbox-core/models/messages/index.html">mike/www/Vite-Vanilla-Ultimate-js/dist/node_modules/workbox-core/models/messages</a></td>
+	<td data-value="100" class="pic high">
+	<div class="chart"><div class="cover-fill cover-full" style="width: 100%"></div><div class="cover-empty" style="width: 0%"></div></div>
+	</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="21" class="abs high">21/21</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="0" class="abs high">0/0</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="0" class="abs high">0/0</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="21" class="abs high">21/21</td>
+	</tr>
+
+<tr>
+	<td class="file high" data-value="mike/www/Vite-Vanilla-Ultimate-js/dist/node_modules/workbox-precaching"><a href="mike/www/Vite-Vanilla-Ultimate-js/dist/node_modules/workbox-precaching/index.html">mike/www/Vite-Vanilla-Ultimate-js/dist/node_modules/workbox-precaching</a></td>
+	<td data-value="100" class="pic high">
+	<div class="chart"><div class="cover-fill cover-full" style="width: 100%"></div><div class="cover-empty" style="width: 0%"></div></div>
+	</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="662" class="abs high">662/662</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="0" class="abs high">0/0</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="0" class="abs high">0/0</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="662" class="abs high">662/662</td>
+	</tr>
+
+<tr>
+	<td class="file high" data-value="mike/www/Vite-Vanilla-Ultimate-js/dist/node_modules/workbox-precaching/utils"><a href="mike/www/Vite-Vanilla-Ultimate-js/dist/node_modules/workbox-precaching/utils/index.html">mike/www/Vite-Vanilla-Ultimate-js/dist/node_modules/workbox-precaching/utils</a></td>
+	<td data-value="100" class="pic high">
+	<div class="chart"><div class="cover-fill cover-full" style="width: 100%"></div><div class="cover-empty" style="width: 0%"></div></div>
+	</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="239" class="abs high">239/239</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="0" class="abs high">0/0</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="0" class="abs high">0/0</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="239" class="abs high">239/239</td>
+	</tr>
+
+<tr>
+	<td class="file high" data-value="mike/www/Vite-Vanilla-Ultimate-js/dist/node_modules/workbox-routing"><a href="mike/www/Vite-Vanilla-Ultimate-js/dist/node_modules/workbox-routing/index.html">mike/www/Vite-Vanilla-Ultimate-js/dist/node_modules/workbox-routing</a></td>
+	<td data-value="100" class="pic high">
+	<div class="chart"><div class="cover-fill cover-full" style="width: 100%"></div><div class="cover-empty" style="width: 0%"></div></div>
+	</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="631" class="abs high">631/631</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="0" class="abs high">0/0</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="0" class="abs high">0/0</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="631" class="abs high">631/631</td>
+	</tr>
+
+<tr>
+	<td class="file high" data-value="mike/www/Vite-Vanilla-Ultimate-js/dist/node_modules/workbox-routing/utils"><a href="mike/www/Vite-Vanilla-Ultimate-js/dist/node_modules/workbox-routing/utils/index.html">mike/www/Vite-Vanilla-Ultimate-js/dist/node_modules/workbox-routing/utils</a></td>
+	<td data-value="100" class="pic high">
+	<div class="chart"><div class="cover-fill cover-full" style="width: 100%"></div><div class="cover-empty" style="width: 0%"></div></div>
+	</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="89" class="abs high">89/89</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="0" class="abs high">0/0</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="0" class="abs high">0/0</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="89" class="abs high">89/89</td>
+	</tr>
+
+<tr>
+	<td class="file high" data-value="mike/www/Vite-Vanilla-Ultimate-js/dist/node_modules/workbox-strategies"><a href="mike/www/Vite-Vanilla-Ultimate-js/dist/node_modules/workbox-strategies/index.html">mike/www/Vite-Vanilla-Ultimate-js/dist/node_modules/workbox-strategies</a></td>
+	<td data-value="100" class="pic high">
+	<div class="chart"><div class="cover-fill cover-full" style="width: 100%"></div><div class="cover-empty" style="width: 0%"></div></div>
+	</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="577" class="abs high">577/577</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="0" class="abs high">0/0</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="0" class="abs high">0/0</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="577" class="abs high">577/577</td>
+	</tr>
+
+<tr>
+	<td class="file low" data-value="mike/www/Vite-Vanilla-Ultimate-js/docs-site/.vitepress"><a href="mike/www/Vite-Vanilla-Ultimate-js/docs-site/.vitepress/index.html">mike/www/Vite-Vanilla-Ultimate-js/docs-site/.vitepress</a></td>
+	<td data-value="0" class="pic low">
+	<div class="chart"><div class="cover-fill" style="width: 0%"></div><div class="cover-empty" style="width: 100%"></div></div>
+	</td>
+	<td data-value="0" class="pct low">0%</td>
+	<td data-value="99" class="abs low">0/99</td>
+	<td data-value="0" class="pct low">0%</td>
+	<td data-value="1" class="abs low">0/1</td>
+	<td data-value="0" class="pct low">0%</td>
+	<td data-value="1" class="abs low">0/1</td>
+	<td data-value="0" class="pct low">0%</td>
+	<td data-value="99" class="abs low">0/99</td>
+	</tr>
+
+<tr>
+	<td class="file empty" data-value="mike/www/Vite-Vanilla-Ultimate-js/docs-site/.vitepress/cache/deps"><a href="mike/www/Vite-Vanilla-Ultimate-js/docs-site/.vitepress/cache/deps/index.html">mike/www/Vite-Vanilla-Ultimate-js/docs-site/.vitepress/cache/deps</a></td>
+	<td data-value="0" class="pic empty">
+	<div class="chart"><div class="cover-fill" style="width: 0%"></div><div class="cover-empty" style="width: 100%"></div></div>
+	</td>
+	<td data-value="0" class="pct empty">0%</td>
+	<td data-value="0" class="abs empty">0/0</td>
+	<td data-value="0" class="pct empty">0%</td>
+	<td data-value="2" class="abs empty">2/2</td>
+	<td data-value="0" class="pct empty">0%</td>
+	<td data-value="2" class="abs empty">2/2</td>
+	<td data-value="0" class="pct empty">0%</td>
+	<td data-value="0" class="abs empty">0/0</td>
+	</tr>
+
+<tr>
+	<td class="file high" data-value="mike/www/Vite-Vanilla-Ultimate-js/node_modules/@vue/devtools-kit/dist"><a href="mike/www/Vite-Vanilla-Ultimate-js/node_modules/@vue/devtools-kit/dist/index.html">mike/www/Vite-Vanilla-Ultimate-js/node_modules/@vue/devtools-kit/dist</a></td>
+	<td data-value="100" class="pic high">
+	<div class="chart"><div class="cover-fill cover-full" style="width: 100%"></div><div class="cover-empty" style="width: 0%"></div></div>
+	</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="3787" class="abs high">3787/3787</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="0" class="abs high">0/0</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="0" class="abs high">0/0</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="3787" class="abs high">3787/3787</td>
+	</tr>
+
+<tr>
+	<td class="file low" data-value="mike/www/Vite-Vanilla-Ultimate-js/node_modules/@vue/devtools-shared/dist"><a href="mike/www/Vite-Vanilla-Ultimate-js/node_modules/@vue/devtools-shared/dist/index.html">mike/www/Vite-Vanilla-Ultimate-js/node_modules/@vue/devtools-shared/dist</a></td>
+	<td data-value="0" class="pic low">
+	<div class="chart"><div class="cover-fill" style="width: 0%"></div><div class="cover-empty" style="width: 100%"></div></div>
+	</td>
+	<td data-value="0" class="pct low">0%</td>
+	<td data-value="338" class="abs low">0/338</td>
+	<td data-value="0" class="pct low">0%</td>
+	<td data-value="1" class="abs low">0/1</td>
+	<td data-value="0" class="pct low">0%</td>
+	<td data-value="1" class="abs low">0/1</td>
+	<td data-value="0" class="pct low">0%</td>
+	<td data-value="338" class="abs low">0/338</td>
+	</tr>
+
+<tr>
+	<td class="file high" data-value="mike/www/Vite-Vanilla-Ultimate-js/node_modules/@vue/reactivity/dist"><a href="mike/www/Vite-Vanilla-Ultimate-js/node_modules/@vue/reactivity/dist/index.html">mike/www/Vite-Vanilla-Ultimate-js/node_modules/@vue/reactivity/dist</a></td>
+	<td data-value="100" class="pic high">
+	<div class="chart"><div class="cover-fill cover-full" style="width: 100%"></div><div class="cover-empty" style="width: 0%"></div></div>
+	</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="1906" class="abs high">1906/1906</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="0" class="abs high">0/0</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="0" class="abs high">0/0</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="1906" class="abs high">1906/1906</td>
+	</tr>
+
+<tr>
+	<td class="file high" data-value="mike/www/Vite-Vanilla-Ultimate-js/node_modules/@vue/runtime-core/dist"><a href="mike/www/Vite-Vanilla-Ultimate-js/node_modules/@vue/runtime-core/dist/index.html">mike/www/Vite-Vanilla-Ultimate-js/node_modules/@vue/runtime-core/dist</a></td>
+	<td data-value="100" class="pic high">
+	<div class="chart"><div class="cover-fill cover-full" style="width: 100%"></div><div class="cover-empty" style="width: 0%"></div></div>
+	</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="8326" class="abs high">8326/8326</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="0" class="abs high">0/0</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="0" class="abs high">0/0</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="8326" class="abs high">8326/8326</td>
+	</tr>
+
+<tr>
+	<td class="file high" data-value="mike/www/Vite-Vanilla-Ultimate-js/node_modules/@vue/runtime-dom/dist"><a href="mike/www/Vite-Vanilla-Ultimate-js/node_modules/@vue/runtime-dom/dist/index.html">mike/www/Vite-Vanilla-Ultimate-js/node_modules/@vue/runtime-dom/dist</a></td>
+	<td data-value="100" class="pic high">
+	<div class="chart"><div class="cover-fill cover-full" style="width: 100%"></div><div class="cover-empty" style="width: 0%"></div></div>
+	</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="1862" class="abs high">1862/1862</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="0" class="abs high">0/0</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="0" class="abs high">0/0</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="1862" class="abs high">1862/1862</td>
+	</tr>
+
+<tr>
+	<td class="file low" data-value="mike/www/Vite-Vanilla-Ultimate-js/node_modules/@vue/shared/dist"><a href="mike/www/Vite-Vanilla-Ultimate-js/node_modules/@vue/shared/dist/index.html">mike/www/Vite-Vanilla-Ultimate-js/node_modules/@vue/shared/dist</a></td>
+	<td data-value="0" class="pic low">
+	<div class="chart"><div class="cover-fill" style="width: 0%"></div><div class="cover-empty" style="width: 100%"></div></div>
+	</td>
+	<td data-value="0" class="pct low">0%</td>
+	<td data-value="530" class="abs low">0/530</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="1" class="abs high">1/1</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="1" class="abs high">1/1</td>
+	<td data-value="0" class="pct low">0%</td>
+	<td data-value="530" class="abs low">0/530</td>
+	</tr>
+
+<tr>
+	<td class="file high" data-value="mike/www/Vite-Vanilla-Ultimate-js/node_modules/@vueuse/core"><a href="mike/www/Vite-Vanilla-Ultimate-js/node_modules/@vueuse/core/index.html">mike/www/Vite-Vanilla-Ultimate-js/node_modules/@vueuse/core</a></td>
+	<td data-value="100" class="pic high">
+	<div class="chart"><div class="cover-fill cover-full" style="width: 100%"></div><div class="cover-empty" style="width: 0%"></div></div>
+	</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="7864" class="abs high">7864/7864</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="0" class="abs high">0/0</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="0" class="abs high">0/0</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="7864" class="abs high">7864/7864</td>
+	</tr>
+
+<tr>
+	<td class="file high" data-value="mike/www/Vite-Vanilla-Ultimate-js/node_modules/@vueuse/integrations"><a href="mike/www/Vite-Vanilla-Ultimate-js/node_modules/@vueuse/integrations/index.html">mike/www/Vite-Vanilla-Ultimate-js/node_modules/@vueuse/integrations</a></td>
+	<td data-value="100" class="pic high">
+	<div class="chart"><div class="cover-fill cover-full" style="width: 100%"></div><div class="cover-empty" style="width: 0%"></div></div>
+	</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="61" class="abs high">61/61</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="0" class="abs high">0/0</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="0" class="abs high">0/0</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="61" class="abs high">61/61</td>
+	</tr>
+
+<tr>
+	<td class="file low" data-value="mike/www/Vite-Vanilla-Ultimate-js/node_modules/@vueuse/shared"><a href="mike/www/Vite-Vanilla-Ultimate-js/node_modules/@vueuse/shared/index.html">mike/www/Vite-Vanilla-Ultimate-js/node_modules/@vueuse/shared</a></td>
+	<td data-value="0" class="pic low">
+	<div class="chart"><div class="cover-fill" style="width: 0%"></div><div class="cover-empty" style="width: 100%"></div></div>
+	</td>
+	<td data-value="0" class="pct low">0%</td>
+	<td data-value="1607" class="abs low">0/1607</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="1" class="abs high">1/1</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="1" class="abs high">1/1</td>
+	<td data-value="0" class="pct low">0%</td>
+	<td data-value="1607" class="abs low">0/1607</td>
+	</tr>
+
+<tr>
+	<td class="file high" data-value="mike/www/Vite-Vanilla-Ultimate-js/node_modules/birpc/dist"><a href="mike/www/Vite-Vanilla-Ultimate-js/node_modules/birpc/dist/index.html">mike/www/Vite-Vanilla-Ultimate-js/node_modules/birpc/dist</a></td>
+	<td data-value="100" class="pic high">
+	<div class="chart"><div class="cover-fill cover-full" style="width: 100%"></div><div class="cover-empty" style="width: 0%"></div></div>
+	</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="223" class="abs high">223/223</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="0" class="abs high">0/0</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="0" class="abs high">0/0</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="223" class="abs high">223/223</td>
+	</tr>
+
+<tr>
+	<td class="file high" data-value="mike/www/Vite-Vanilla-Ultimate-js/node_modules/focus-trap"><a href="mike/www/Vite-Vanilla-Ultimate-js/node_modules/focus-trap/index.html">mike/www/Vite-Vanilla-Ultimate-js/node_modules/focus-trap</a></td>
+	<td data-value="100" class="pic high">
+	<div class="chart"><div class="cover-fill cover-full" style="width: 100%"></div><div class="cover-empty" style="width: 0%"></div></div>
+	</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="839" class="abs high">839/839</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="0" class="abs high">0/0</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="0" class="abs high">0/0</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="839" class="abs high">839/839</td>
+	</tr>
+
+<tr>
+	<td class="file high" data-value="mike/www/Vite-Vanilla-Ultimate-js/node_modules/hookable/dist"><a href="mike/www/Vite-Vanilla-Ultimate-js/node_modules/hookable/dist/index.html">mike/www/Vite-Vanilla-Ultimate-js/node_modules/hookable/dist</a></td>
+	<td data-value="100" class="pic high">
+	<div class="chart"><div class="cover-fill cover-full" style="width: 100%"></div><div class="cover-empty" style="width: 0%"></div></div>
+	</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="289" class="abs high">289/289</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="0" class="abs high">0/0</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="0" class="abs high">0/0</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="289" class="abs high">289/289</td>
+	</tr>
+
+<tr>
+	<td class="file high" data-value="mike/www/Vite-Vanilla-Ultimate-js/node_modules/mark.js/src"><a href="mike/www/Vite-Vanilla-Ultimate-js/node_modules/mark.js/src/index.html">mike/www/Vite-Vanilla-Ultimate-js/node_modules/mark.js/src</a></td>
+	<td data-value="100" class="pic high">
+	<div class="chart"><div class="cover-fill cover-full" style="width: 100%"></div><div class="cover-empty" style="width: 0%"></div></div>
+	</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="20" class="abs high">20/20</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="0" class="abs high">0/0</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="0" class="abs high">0/0</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="20" class="abs high">20/20</td>
+	</tr>
+
+<tr>
+	<td class="file medium" data-value="mike/www/Vite-Vanilla-Ultimate-js/node_modules/mark.js/src/lib"><a href="mike/www/Vite-Vanilla-Ultimate-js/node_modules/mark.js/src/lib/index.html">mike/www/Vite-Vanilla-Ultimate-js/node_modules/mark.js/src/lib</a></td>
+	<td data-value="61.6" class="pic medium">
+	<div class="chart"><div class="cover-fill" style="width: 61%"></div><div class="cover-empty" style="width: 39%"></div></div>
+	</td>
+	<td data-value="61.6" class="pct medium">61.6%</td>
+	<td data-value="1258" class="abs medium">775/1258</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="1" class="abs high">1/1</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="1" class="abs high">1/1</td>
+	<td data-value="61.6" class="pct medium">61.6%</td>
+	<td data-value="1258" class="abs medium">775/1258</td>
+	</tr>
+
+<tr>
+	<td class="file high" data-value="mike/www/Vite-Vanilla-Ultimate-js/node_modules/minisearch/src"><a href="mike/www/Vite-Vanilla-Ultimate-js/node_modules/minisearch/src/index.html">mike/www/Vite-Vanilla-Ultimate-js/node_modules/minisearch/src</a></td>
+	<td data-value="100" class="pic high">
+	<div class="chart"><div class="cover-fill cover-full" style="width: 100%"></div><div class="cover-empty" style="width: 0%"></div></div>
+	</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="833" class="abs high">833/833</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="0" class="abs high">0/0</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="0" class="abs high">0/0</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="833" class="abs high">833/833</td>
+	</tr>
+
+<tr>
+	<td class="file medium" data-value="mike/www/Vite-Vanilla-Ultimate-js/node_modules/minisearch/src/SearchableMap"><a href="mike/www/Vite-Vanilla-Ultimate-js/node_modules/minisearch/src/SearchableMap/index.html">mike/www/Vite-Vanilla-Ultimate-js/node_modules/minisearch/src/SearchableMap</a></td>
+	<td data-value="79.94" class="pic medium">
+	<div class="chart"><div class="cover-fill" style="width: 79%"></div><div class="cover-empty" style="width: 21%"></div></div>
+	</td>
+	<td data-value="79.94" class="pct medium">79.94%</td>
+	<td data-value="394" class="abs medium">315/394</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="1" class="abs high">1/1</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="1" class="abs high">1/1</td>
+	<td data-value="79.94" class="pct medium">79.94%</td>
+	<td data-value="394" class="abs medium">315/394</td>
+	</tr>
+
+<tr>
+	<td class="file high" data-value="mike/www/Vite-Vanilla-Ultimate-js/node_modules/perfect-debounce/dist"><a href="mike/www/Vite-Vanilla-Ultimate-js/node_modules/perfect-debounce/dist/index.html">mike/www/Vite-Vanilla-Ultimate-js/node_modules/perfect-debounce/dist</a></td>
+	<td data-value="100" class="pic high">
+	<div class="chart"><div class="cover-fill cover-full" style="width: 100%"></div><div class="cover-empty" style="width: 0%"></div></div>
+	</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="57" class="abs high">57/57</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="0" class="abs high">0/0</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="0" class="abs high">0/0</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="57" class="abs high">57/57</td>
+	</tr>
+
+<tr>
+	<td class="file low" data-value="mike/www/Vite-Vanilla-Ultimate-js/node_modules/tabbable/src"><a href="mike/www/Vite-Vanilla-Ultimate-js/node_modules/tabbable/src/index.html">mike/www/Vite-Vanilla-Ultimate-js/node_modules/tabbable/src</a></td>
+	<td data-value="0" class="pic low">
+	<div class="chart"><div class="cover-fill" style="width: 0%"></div><div class="cover-empty" style="width: 100%"></div></div>
+	</td>
+	<td data-value="0" class="pct low">0%</td>
+	<td data-value="559" class="abs low">0/559</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="1" class="abs high">1/1</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="1" class="abs high">1/1</td>
+	<td data-value="0" class="pct low">0%</td>
+	<td data-value="559" class="abs low">0/559</td>
+	</tr>
+
+<tr>
+	<td class="file high" data-value="mike/www/Vite-Vanilla-Ultimate-js/node_modules/vitepress/dist/client/theme-default"><a href="mike/www/Vite-Vanilla-Ultimate-js/node_modules/vitepress/dist/client/theme-default/index.html">mike/www/Vite-Vanilla-Ultimate-js/node_modules/vitepress/dist/client/theme-default</a></td>
+	<td data-value="92.68" class="pic high">
+	<div class="chart"><div class="cover-fill" style="width: 92%"></div><div class="cover-empty" style="width: 8%"></div></div>
+	</td>
+	<td data-value="92.68" class="pct high">92.68%</td>
+	<td data-value="41" class="abs high">38/41</td>
+	<td data-value="0" class="pct low">0%</td>
+	<td data-value="1" class="abs low">0/1</td>
+	<td data-value="0" class="pct low">0%</td>
+	<td data-value="1" class="abs low">0/1</td>
+	<td data-value="92.68" class="pct high">92.68%</td>
+	<td data-value="41" class="abs high">38/41</td>
+	</tr>
+
+<tr>
+	<td class="file high" data-value="mike/www/Vite-Vanilla-Ultimate-js/node_modules/vitepress/dist/client/theme-default/composables"><a href="mike/www/Vite-Vanilla-Ultimate-js/node_modules/vitepress/dist/client/theme-default/composables/index.html">mike/www/Vite-Vanilla-Ultimate-js/node_modules/vitepress/dist/client/theme-default/composables</a></td>
+	<td data-value="100" class="pic high">
+	<div class="chart"><div class="cover-fill cover-full" style="width: 100%"></div><div class="cover-empty" style="width: 0%"></div></div>
+	</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="196" class="abs high">196/196</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="0" class="abs high">0/0</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="0" class="abs high">0/0</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="196" class="abs high">196/196</td>
+	</tr>
+
+<tr>
+	<td class="file high" data-value="mike/www/Vite-Vanilla-Ultimate-js/node_modules/vitepress/dist/client/theme-default/support"><a href="mike/www/Vite-Vanilla-Ultimate-js/node_modules/vitepress/dist/client/theme-default/support/index.html">mike/www/Vite-Vanilla-Ultimate-js/node_modules/vitepress/dist/client/theme-default/support</a></td>
+	<td data-value="100" class="pic high">
+	<div class="chart"><div class="cover-fill cover-full" style="width: 100%"></div><div class="cover-empty" style="width: 0%"></div></div>
+	</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="108" class="abs high">108/108</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="0" class="abs high">0/0</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="0" class="abs high">0/0</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="108" class="abs high">108/108</td>
+	</tr>
+
+<tr>
+	<td class="file high" data-value="mike/www/Vite-Vanilla-Ultimate-js/node_modules/vue/dist"><a href="mike/www/Vite-Vanilla-Ultimate-js/node_modules/vue/dist/index.html">mike/www/Vite-Vanilla-Ultimate-js/node_modules/vue/dist</a></td>
+	<td data-value="100" class="pic high">
+	<div class="chart"><div class="cover-fill cover-full" style="width: 100%"></div><div class="cover-empty" style="width: 0%"></div></div>
+	</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="19" class="abs high">19/19</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="0" class="abs high">0/0</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="0" class="abs high">0/0</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="19" class="abs high">19/19</td>
+	</tr>
+
+<tr>
+	<td class="file low" data-value="mike/www/Vite-Vanilla-Ultimate-js/src"><a href="mike/www/Vite-Vanilla-Ultimate-js/src/index.html">mike/www/Vite-Vanilla-Ultimate-js/src</a></td>
+	<td data-value="0" class="pic low">
+	<div class="chart"><div class="cover-fill" style="width: 0%"></div><div class="cover-empty" style="width: 100%"></div></div>
+	</td>
+	<td data-value="0" class="pct low">0%</td>
+	<td data-value="40" class="abs low">0/40</td>
+	<td data-value="0" class="pct low">0%</td>
+	<td data-value="2" class="abs low">0/2</td>
+	<td data-value="0" class="pct low">0%</td>
+	<td data-value="2" class="abs low">0/2</td>
+	<td data-value="0" class="pct low">0%</td>
+	<td data-value="40" class="abs low">0/40</td>
+	</tr>
+
+<tr>
+	<td class="file low" data-value="mike/www/Vite-Vanilla-Ultimate-js/src/components"><a href="mike/www/Vite-Vanilla-Ultimate-js/src/components/index.html">mike/www/Vite-Vanilla-Ultimate-js/src/components</a></td>
+	<td data-value="0" class="pic low">
+	<div class="chart"><div class="cover-fill" style="width: 0%"></div><div class="cover-empty" style="width: 100%"></div></div>
+	</td>
+	<td data-value="0" class="pct low">0%</td>
+	<td data-value="21" class="abs low">0/21</td>
+	<td data-value="0" class="pct low">0%</td>
+	<td data-value="3" class="abs low">0/3</td>
+	<td data-value="0" class="pct low">0%</td>
+	<td data-value="3" class="abs low">0/3</td>
+	<td data-value="0" class="pct low">0%</td>
+	<td data-value="21" class="abs low">0/21</td>
+	</tr>
+
+<tr>
+	<td class="file low" data-value="mike/www/Vite-Vanilla-Ultimate-js/src/modules"><a href="mike/www/Vite-Vanilla-Ultimate-js/src/modules/index.html">mike/www/Vite-Vanilla-Ultimate-js/src/modules</a></td>
+	<td data-value="0" class="pic low">
+	<div class="chart"><div class="cover-fill" style="width: 0%"></div><div class="cover-empty" style="width: 100%"></div></div>
+	</td>
+	<td data-value="0" class="pct low">0%</td>
+	<td data-value="48" class="abs low">0/48</td>
+	<td data-value="0" class="pct low">0%</td>
+	<td data-value="2" class="abs low">0/2</td>
+	<td data-value="0" class="pct low">0%</td>
+	<td data-value="2" class="abs low">0/2</td>
+	<td data-value="0" class="pct low">0%</td>
+	<td data-value="48" class="abs low">0/48</td>
+	</tr>
+
+<tr>
+	<td class="file low" data-value="mike/www/Vite-Vanilla-Ultimate-js/src/pages"><a href="mike/www/Vite-Vanilla-Ultimate-js/src/pages/index.html">mike/www/Vite-Vanilla-Ultimate-js/src/pages</a></td>
+	<td data-value="0" class="pic low">
+	<div class="chart"><div class="cover-fill" style="width: 0%"></div><div class="cover-empty" style="width: 100%"></div></div>
+	</td>
+	<td data-value="0" class="pct low">0%</td>
+	<td data-value="29" class="abs low">0/29</td>
+	<td data-value="0" class="pct low">0%</td>
+	<td data-value="3" class="abs low">0/3</td>
+	<td data-value="0" class="pct low">0%</td>
+	<td data-value="3" class="abs low">0/3</td>
+	<td data-value="0" class="pct low">0%</td>
+	<td data-value="29" class="abs low">0/29</td>
+	</tr>
+
+<tr>
+	<td class="file low" data-value="mike/www/Vite-Vanilla-Ultimate-js/src/utils"><a href="mike/www/Vite-Vanilla-Ultimate-js/src/utils/index.html">mike/www/Vite-Vanilla-Ultimate-js/src/utils</a></td>
+	<td data-value="0" class="pic low">
+	<div class="chart"><div class="cover-fill" style="width: 0%"></div><div class="cover-empty" style="width: 100%"></div></div>
+	</td>
+	<td data-value="0" class="pct low">0%</td>
+	<td data-value="575" class="abs low">0/575</td>
+	<td data-value="0" class="pct low">0%</td>
+	<td data-value="3" class="abs low">0/3</td>
+	<td data-value="0" class="pct low">0%</td>
+	<td data-value="3" class="abs low">0/3</td>
+	<td data-value="0" class="pct low">0%</td>
+	<td data-value="575" class="abs low">0/575</td>
+	</tr>
+
+<tr>
+	<td class="file low" data-value="private/var/folders/25/q1_08sc15d5gn7x7snscmhnr0000gn/T/a2262fcc798809c731eb957ed27b83d5"><a href="private/var/folders/25/q1_08sc15d5gn7x7snscmhnr0000gn/T/a2262fcc798809c731eb957ed27b83d5/index.html">private/var/folders/25/q1_08sc15d5gn7x7snscmhnr0000gn/T/a2262fcc798809c731eb957ed27b83d5</a></td>
+	<td data-value="0" class="pic low">
+	<div class="chart"><div class="cover-fill" style="width: 0%"></div><div class="cover-empty" style="width: 100%"></div></div>
+	</td>
+	<td data-value="0" class="pct low">0%</td>
+	<td data-value="21" class="abs low">0/21</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="1" class="abs high">1/1</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="1" class="abs high">1/1</td>
+	<td data-value="0" class="pct low">0%</td>
+	<td data-value="21" class="abs low">0/21</td>
+	</tr>
+
+</tbody>
+</table>
+</div>
+                <div class='push'></div><!-- for sticky footer -->
+            </div><!-- /wrapper -->
+            <div class='footer quiet pad2 space-top1 center small'>
+                Code coverage generated by
+                <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
+                at 2025-08-12T13:48:32.903Z
+            </div>
+        <script src="prettify.js"></script>
+        <script>
+            window.onload = function () {
+                prettyPrint();
+            };
+        </script>
+        <script src="sorter.js"></script>
+        <script src="block-navigation.js"></script>
+    </body>
 </html>
+    
