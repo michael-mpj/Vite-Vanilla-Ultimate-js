@@ -8,9 +8,9 @@ Currently, this project does not require any environment variables by default.
 
 ## Optional Variables
 
-| Variable      | Description                          | Default     |
-| ------------- | ---------------------------------- | ----------- |
-| `VITE_API_URL`| Base URL for API endpoints          | `http://localhost:3000` |
+| Variable       | Description                | Default                 |
+| -------------- | -------------------------- | ----------------------- |
+| `VITE_API_URL` | Base URL for API endpoints | `http://localhost:3000` |
 
 ## How to Set Environment Variables
 

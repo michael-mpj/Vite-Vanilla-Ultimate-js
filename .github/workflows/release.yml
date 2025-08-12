@@ -1,0 +1,107 @@
+name: 🔄 Auto Release
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - 'docs/**'
+      - '*.md'
+      - '.gitignore'
+
+jobs:
+  release:
+    name: 🚀 Semantic Release
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📦 Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: 🔧 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          cache: 'npm'
+
+      - name: 📥 Install dependencies
+        run: npm ci
+
+      - name: 🧪 Run tests
+        run: npm run test:run
+
+      - name: 🏗️ Build project
+        run: npm run build
+
+      - name: 📋 Check if release needed
+        id: check-release
+        run: |
+          # Check for conventional commits that would trigger a release
+          COMMITS=$(git log --oneline --since="1 day ago" --grep="^feat\|^fix\|^perf" --grep="BREAKING CHANGE" | head -10)
+          if [ -n "$COMMITS" ]; then
+            echo "SHOULD_RELEASE=true" >> $GITHUB_OUTPUT
+            echo "Release-worthy commits found:"
+            echo "$COMMITS"
+          else
+            echo "SHOULD_RELEASE=false" >> $GITHUB_OUTPUT
+            echo "No release-worthy commits found"
+          fi
+
+      - name: 🏷️ Create release
+        if: steps.check-release.outputs.SHOULD_RELEASE == 'true'
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+
+          # Determine release type based on commit messages
+          COMMITS_SINCE_LAST_TAG=$(git log $(git describe --tags --abbrev=0)..HEAD --oneline || git log --oneline)
+
+          if echo "$COMMITS_SINCE_LAST_TAG" | grep -q "BREAKING CHANGE\|^feat.*!"; then
+            RELEASE_TYPE="major"
+          elif echo "$COMMITS_SINCE_LAST_TAG" | grep -q "^feat"; then
+            RELEASE_TYPE="minor"
+          else
+            RELEASE_TYPE="patch"
+          fi
+
+          echo "Creating $RELEASE_TYPE release"
+          npm run release:$RELEASE_TYPE
+
+      - name: 📝 Update changelog
+        if: steps.check-release.outputs.SHOULD_RELEASE == 'true'
+        run: |
+          # Create or update CHANGELOG.md
+          if [ ! -f CHANGELOG.md ]; then
+            echo "# Changelog" > CHANGELOG.md
+            echo "" >> CHANGELOG.md
+            echo "All notable changes to this project will be documented in this file." >> CHANGELOG.md
+            echo "" >> CHANGELOG.md
+          fi
+
+          # Add changelog entry
+          LATEST_TAG=$(git describe --tags --abbrev=0)
+          DATE=$(date +%Y-%m-%d)
+
+          # Create temporary changelog
+          echo "## [$LATEST_TAG] - $DATE" > temp_changelog.md
+          echo "" >> temp_changelog.md
+
+          # Add changes based on commit messages
+          git log --oneline --since="1 day ago" --grep="^feat" | sed 's/^[a-f0-9]* feat/- ✨ Added/' >> temp_changelog.md
+          git log --oneline --since="1 day ago" --grep="^fix" | sed 's/^[a-f0-9]* fix/- 🐛 Fixed/' >> temp_changelog.md
+          git log --oneline --since="1 day ago" --grep="^perf" | sed 's/^[a-f0-9]* perf/- ⚡ Improved/' >> temp_changelog.md
+          git log --oneline --since="1 day ago" --grep="^docs" | sed 's/^[a-f0-9]* docs/- 📚 Documentation/' >> temp_changelog.md
+
+          echo "" >> temp_changelog.md
+
+          # Prepend to existing changelog
+          cat temp_changelog.md CHANGELOG.md > new_changelog.md
+          mv new_changelog.md CHANGELOG.md
+          rm temp_changelog.md
+
+          # Commit changelog
+          git add CHANGELOG.md
+          git commit -m "docs: update changelog for $LATEST_TAG" || echo "No changelog changes to commit"
+          git push
