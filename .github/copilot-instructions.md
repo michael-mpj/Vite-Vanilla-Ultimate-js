@@ -1,0 +1,1 @@
+Node.js 22.0.0 and Vite ^7.1.5 for consistency.I'm waiting for your response to continue with creating the pull request to standardize the Node.js version to exactly "22.0.0" and update Vite to the latest version across my repositories.
